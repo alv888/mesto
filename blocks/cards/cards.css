@@ -1,0 +1,10 @@
+.cards {
+    padding-top: 50px;
+    font-family: 'Inter', Arial, sans-serif;
+    max-width: 880px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 282px);
+    gap: 20px 17px;
+    justify-content: center;
+}

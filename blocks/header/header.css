@@ -5,3 +5,28 @@
     padding-top: 45px;
     border-bottom: 1px solid #545454;
 }
+
+@media (max-width: 1023px) {
+    .header {
+        max-width: 750px;
+    }
+  }
+
+  @media (max-width: 799px) {
+    .header {
+        max-width: 650px;
+    }
+  }
+
+  @media (max-width: 699px) {
+    .header {
+        max-width: 500px;
+        height: 56px;
+    }
+  }
+
+  @media (max-width: 550px) {
+    .header {
+        max-width: 320px;
+    }
+  }

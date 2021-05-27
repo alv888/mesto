@@ -7,3 +7,28 @@
     max-width: 880px;
     padding-top: 40px;
 }
+
+@media (max-width: 1023px) {
+    .profile {
+        max-width: 750px;
+    }
+  }
+
+  @media (max-width: 799px) {
+    .profile {
+        max-width: 650px;
+    }
+  }
+
+  @media (max-width: 699px) {
+    .profile {
+        max-width: 500px;
+        flex-direction: column;
+    }
+  }
+
+  @media (max-width: 699px) {
+    .profile {
+        max-width: 282px;
+    }
+  }

@@ -2,7 +2,16 @@
     font-weight: 500;
     font-size: 42px;
     line-height: 48px;
+    text-align: center;
     color: #FFFFFF;
     margin: 0;
     margin-right: 18px;
 }
+
+@media (max-width: 699px) {
+    .profile_username {
+        font-size: 27px;
+        line-height: 33px;
+        margin-right: 10px;
+    }
+  }

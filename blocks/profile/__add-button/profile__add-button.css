@@ -6,4 +6,24 @@
     background-repeat: no-repeat;
     background-position: center;
     border: 2px solid #FFFFFF;
+    transition: .1s;
+    outline: none;
 }
+
+.profile__add-button:hover {
+    opacity: .6;
+    cursor: pointer;
+  }
+
+  @media (max-width: 699px) {
+    .profile__add-button {
+        width: 500px;
+        margin-top: 50px;
+    }
+  }
+
+  @media (max-width: 550px) {
+    .profile__add-button {
+        width: 282px;
+        }
+  }
