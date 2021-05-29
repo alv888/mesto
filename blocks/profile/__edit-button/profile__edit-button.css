@@ -8,7 +8,6 @@
     border: 1px solid #FFFFFF;
     transition: .1s;
     outline: none;
-    background-size:inherit
 }
 
 .profile__edit-button:hover {
