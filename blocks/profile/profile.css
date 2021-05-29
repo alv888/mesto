@@ -17,13 +17,14 @@
   @media (max-width: 799px) {
     .profile {
         max-width: 650px;
+        flex-direction: column;
     }
   }
 
   @media (max-width: 699px) {
     .profile {
         max-width: 500px;
-        flex-direction: column;
+        
     }
   }
 

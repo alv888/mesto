@@ -17,13 +17,7 @@
 
   @media (max-width: 699px) {
     .profile__add-button {
-        width: 500px;
+        width: 282px;
         margin-top: 50px;
     }
-  }
-
-  @media (max-width: 550px) {
-    .profile__add-button {
-        width: 282px;
-        }
   }
