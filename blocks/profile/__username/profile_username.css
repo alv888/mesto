@@ -10,6 +10,7 @@
 
 @media (max-width: 699px) {
     .profile__username {
+        margin-top: 26px;
         font-size: 27px;
         line-height: 33px;
         margin-right: 10px;
