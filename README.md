@@ -11,4 +11,4 @@
 5. JavaScript
 
 ## Сcылка на проект
-*
+* https://alv888.github.io/mesto/
