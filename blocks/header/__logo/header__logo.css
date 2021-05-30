@@ -11,3 +11,10 @@
         padding-bottom: 32px;
     }
   }
+
+  @media (max-width: 399px) {
+    .header__logo {
+        margin-left: 27px;
+        padding-bottom: 28px;
+    }
+  }

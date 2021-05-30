@@ -13,8 +13,8 @@ let username = document.querySelector('.profile__username');
 let profession = document.querySelector('.profile__profession');
 
 //Поля в попапе
-let usernamePopup = document.querySelector('.popup__input-username');
-let professionPopup = document.querySelector('.popup__input-profession')
+let usernamePopup = document.querySelector('#username');
+let professionPopup = document.querySelector('#user-job')
 
 //Открытие попапа
 function openPopup() {

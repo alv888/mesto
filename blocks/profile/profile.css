@@ -23,13 +23,7 @@
 
   @media (max-width: 699px) {
     .profile {
-        max-width: 500px;
-        
-    }
-  }
-
-  @media (max-width: 699px) {
-    .profile {
         max-width: 282px;
+        padding-top: 42px;
     }
   }

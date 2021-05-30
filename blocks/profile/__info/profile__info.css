@@ -1,5 +1,12 @@
 .profile__info {
     display: flex;
     flex-direction: column;
+    margin-top: 19px;
 }
 
+@media (max-width: 799px) {
+    .profile__info {
+        margin-top: 0px;
+        align-items: center;
+    }
+  }

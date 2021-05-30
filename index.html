@@ -9,7 +9,7 @@
 <body>
     <div class="page">
         <header class="header">
-            <img class="header__logo" alt="Логотип Mesto"   src="./images/logo_mesto.png">
+            <img class="header__logo" alt="Логотип Mesto"   src="./images/logo_mesto.svg">
         </header>
         <main class="content">
             <section class="profile">
@@ -29,42 +29,42 @@
                 <div class="cards__container">
                     <img class="cards__img" src="./images/karachaevsk.png" alt="Карачаевск">
                     <div class="cards__menu">
-                        <p class="cards__name">Карачаевск</p>
+                        <h2 class="cards__name">Карачаевск</h2>
                         <button class="cards__like-button" type="button"></button>
                     </div>
                 </div>
                 <div class="cards__container">
                     <img class="cards__img" src="./images/elbrus.png" alt="Эльбрус">
                     <div class="cards__menu">
-                        <p class="cards__name">Гора Эльбрус</p>
+                        <h2 class="cards__name">Гора Эльбрус</h2>
                         <button class="cards__like-button" type="button"></button>
                     </div>
                 </div>
                 <div class="cards__container">
                     <img class="cards__img" src="./images/dombai.png" alt="Домбай">
                     <div class="cards__menu">
-                        <p class="cards__name">Домбай</p>
+                        <h2 class="cards__name">Домбай</h2>
                         <button class="cards__like-button" type="button"></button>
                     </div>
                 </div>
                 <div class="cards__container">
                     <img class="cards__img" src="./images/elbrus2.png" alt="Эльбрус2">
                     <div class="cards__menu">
-                        <p class="cards__name">Гора Эльбрус</p>
+                        <h2 class="cards__name">Гора Эльбрус</h2>
                         <button class="cards__like-button" type="button"></button>
                     </div>
                 </div>
                 <div class="cards__container">
                     <img class="cards__img" src="./images/dombai2.png" alt="Домбай2">
                     <div class="cards__menu">
-                        <p class="cards__name">Домбай</p>
+                        <h2 class="cards__name">Домбай</h2>
                         <button class="cards__like-button cards__like-button_active" type="button"></button>
                     </div>
                 </div>
                 <div class="cards__container">
                     <img class="cards__img" src="./images/cherkesia.png" alt="Карачаево-Черкессия">
                     <div class="cards__menu">
-                        <p class="cards__name">Карачаево-Черкессия</p>
+                        <h2 class="cards__name">Карачаево-Черкессия</h2>
                         <button class="cards__like-button" type="button"></button>
                     </div>
                 </div>
@@ -75,17 +75,17 @@
             <p class="footer__project-name">&copy; 2021 Mesto Russia</p>
         </footer>
     </div>
-    <section class="popup">
+    <div class="popup">
         <div class="popup__container">
             <button class="popup__close-button" type="button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form">
-                <input class="popup__input popup__input-username" name="username" minlength="2" maxlength="32">
-                <input class="popup__input popup__input-profession" name="profession" minlength="2" maxlength="32">
+            <form class="popup__form" name="edit-info">
+                <input class="popup__input" name="username" minlength="2" maxlength="32" id="username">
+                <input class="popup__input" name="profession" minlength="2" maxlength="32" id="user-job">
                 <button type="submit" class="popup__submit-button">Сохранить</button>
             </form>
         </div>
-    </section>
+    </div>
 
     <script src="./scripts/script.js"></script>
 </body>
