@@ -1,4 +1,47 @@
-//Поиск содержимого:
+//Загрузка карточек:
+//Массив для загрузки карточек
+const initialCards = [
+    {
+      name: 'Архыз',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    },
+    {
+      name: 'Челябинская область',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    },
+    {
+      name: 'Иваново',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    },
+    {
+      name: 'Камчатка',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    },
+    {
+      name: 'Холмогорский район',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    },
+    {
+      name: 'Байкал',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    }
+  ];
+
+//Поиск template:
+const itemTemplate = document.querySelector('.card__template').content;
+const cardZone = document.querySelector('.cards');
+
+//Добавление элементов в разметку
+initialCards.forEach((item) => {
+    const htmlElement = itemTemplate.cloneNode(true);
+    htmlElement.querySelector('.cards__name').textContent = item.name;
+    htmlElement.querySelector('.cards__img').src = item.link;
+    cardZone.append(htmlElement);
+});
+
+
+
+
 //Попап:
 let popup = document.querySelector('.popup');
 //Кнопка редактирования:
