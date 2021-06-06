@@ -40,9 +40,49 @@ initialCards.forEach((item) => {
 });
 
 
+//Попап добавления места:
+let popupAdd = document.querySelector('.popup_add-img');
+//Кнопка добавления:
+let openPopupButtonAddImg = document.querySelector('.profile__add-button');
+//Кнопка закрытия:
+let closePopupButtonAdd = document.querySelector('.popup__close-button_add-img');
+//Открытие попапа добавления:
+function openPopupAdd() {
+  popupAdd.classList.add('popup_opened');
+};
+openPopupButtonAddImg.addEventListener('click', openPopupAdd);
+//Закрытие попапа редактирования
+function closePopupAdd() {
+  popupAdd.classList.remove('popup_opened');
+};
+closePopupButtonAdd.addEventListener('click', closePopupAdd);
+
+//Форма добавления:
+let formAddCard = document.querySelector('.popup_form-add');
+//Поля формы попапа добавления карточки
+let namePlace = document.querySelector('.popup__input_add-name');
+let linkImg = document.querySelector('.popup__input_add-link');
+//Добавление карточки из попапа
+function addCard(name, link){
+  const htmlElement = itemTemplate.cloneNode(true);
+  const nameNewCard = htmlElement.querySelector('.cards__name');
+  const linkNewCard = htmlElement.querySelector('.cards__img');
+  nameNewCard.textContent = name;
+  linkNewCard.src = link;
+  cardZone.prepend(htmlElement);
+};
+//Отправка значения формы добавления
+function formSubmitHandlerAdd (evt) {
+  evt.preventDefault(); 
+  addCard(namePlace.value, linkImg.value);
+  closePopupAdd();
+};
+//Обработчик для формы добавления
+formAddCard.addEventListener('submit', formSubmitHandlerAdd); 
 
 
-//Попап:
+
+//Попап редактирования:
 let popup = document.querySelector('.popup');
 //Кнопка редактирования:
 let openPopupButton = document.querySelector('.profile__edit-button');
@@ -50,31 +90,29 @@ let openPopupButton = document.querySelector('.profile__edit-button');
 let closePopupButton = document.querySelector('.popup__close-button');
 //Форма:
 let form = document.querySelector('.popup__form');
-
 //Поля в профиле
 let username = document.querySelector('.profile__username');
 let profession = document.querySelector('.profile__profession');
-
 //Поля в попапе
 let usernamePopup = document.querySelector('#username');
 let professionPopup = document.querySelector('#user-job')
 
-//Открытие попапа
+
+//Открытие попапа редактирования
 function openPopup() {
     popup.classList.add('popup_opened');
     usernamePopup.value = username.textContent;
     professionPopup.value = profession.textContent;
 };
 openPopupButton.addEventListener('click', openPopup);
-
-//Закрытие попапа
+//Закрытие попапа редактирования
 function closePopup() {
     popup.classList.remove('popup_opened');
 };
 closePopupButton.addEventListener('click', closePopup);
 
 
-//Отправка значения формы
+//Отправка значения формы редактирования
 function formSubmitHandler (evt) {
     evt.preventDefault(); 
     username.textContent = usernamePopup.value;
