@@ -62,14 +62,17 @@ const popupImgTitle = document.querySelector('.popup__img-title');
 const closePopupButtonImg = document.querySelector('.popup__close-img')
 
 
-//Добавление элементов в разметку при загрузке страницы
-initialCards.forEach((item) => {
-    const cards = addCard(item.name, item.link);
-    function firstCards(){
-      cardZone.append();
-    }
-    firstCards(cards);
-});
+//Открытие попапа изображения:
+function openPopupImg() {
+  popupImage.classList.add('popup_opened');
+};
+
+
+//Закрытие попапа редактирования
+function closePopupImg() {
+  popupImage.classList.remove('popup_opened');
+};
+closePopupButtonImg.addEventListener('click', closePopupImg);
 
 
 //Добавление карточек
@@ -101,17 +104,14 @@ function addCard(name, link){
 };
 
 
-//Открытие попапа изображения:
-function openPopupImg() {
-  popupImage.classList.add('popup_opened');
-};
-
-
-//Закрытие попапа редактирования
-function closePopupImg() {
-  popupImage.classList.remove('popup_opened');
-};
-closePopupButtonImg.addEventListener('click', closePopupImg);
+//Добавление элементов в разметку при загрузке страницы
+initialCards.forEach((item) => {
+  const cards = addCard(item.name, item.link);
+  function firstCards(){
+    cardZone.append();
+  }
+  firstCards(cards);
+});
 
 
 //Открытие попапа добавления:
