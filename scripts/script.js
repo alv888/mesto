@@ -1,4 +1,3 @@
-//Загрузка карточек:
 //Массив для загрузки карточек
 const initialCards = [
     {
@@ -30,58 +29,17 @@ const initialCards = [
 //Поиск template:
 const itemTemplate = document.querySelector('.card__template').content;
 const cardZone = document.querySelector('.cards');
-
-//Добавление элементов в разметку
-initialCards.forEach((item) => {
-    const htmlElement = itemTemplate.cloneNode(true);
-    htmlElement.querySelector('.cards__name').textContent = item.name;
-    htmlElement.querySelector('.cards__img').src = item.link;
-    cardZone.append(htmlElement);
-});
-
-
 //Попап добавления места:
 let popupAdd = document.querySelector('.popup_add-img');
 //Кнопка добавления:
 let openPopupButtonAddImg = document.querySelector('.profile__add-button');
 //Кнопка закрытия:
 let closePopupButtonAdd = document.querySelector('.popup__close-button_add-img');
-//Открытие попапа добавления:
-function openPopupAdd() {
-  popupAdd.classList.add('popup_opened');
-};
-openPopupButtonAddImg.addEventListener('click', openPopupAdd);
-//Закрытие попапа редактирования
-function closePopupAdd() {
-  popupAdd.classList.remove('popup_opened');
-};
-closePopupButtonAdd.addEventListener('click', closePopupAdd);
-
 //Форма добавления:
 let formAddCard = document.querySelector('.popup_form-add');
 //Поля формы попапа добавления карточки
 let namePlace = document.querySelector('.popup__input_add-name');
 let linkImg = document.querySelector('.popup__input_add-link');
-//Добавление карточки из попапа
-function addCard(name, link){
-  const htmlElement = itemTemplate.cloneNode(true);
-  const nameNewCard = htmlElement.querySelector('.cards__name');
-  const linkNewCard = htmlElement.querySelector('.cards__img');
-  nameNewCard.textContent = name;
-  linkNewCard.src = link;
-  cardZone.prepend(htmlElement);
-};
-//Отправка значения формы добавления
-function formSubmitHandlerAdd (evt) {
-  evt.preventDefault(); 
-  addCard(namePlace.value, linkImg.value);
-  closePopupAdd();
-};
-//Обработчик для формы добавления
-formAddCard.addEventListener('submit', formSubmitHandlerAdd); 
-
-
-
 //Попап редактирования:
 let popup = document.querySelector('.popup');
 //Кнопка редактирования:
@@ -98,6 +56,68 @@ let usernamePopup = document.querySelector('#username');
 let professionPopup = document.querySelector('#user-job')
 
 
+
+
+
+
+//Добавление элементов в разметку при загрузке страницы
+initialCards.forEach((item) => {
+    const htmlElement = itemTemplate.cloneNode(true);
+    htmlElement.querySelector('.cards__name').textContent = item.name;
+    htmlElement.querySelector('.cards__img').src = item.link;
+    htmlElement.querySelector('.cards__like-button').addEventListener('click', function(evt) {
+      evt.target.classList.toggle('cards__like-button_active');
+    });
+    htmlElement.querySelector('.cards__del-button').addEventListener('click', function(evt) {
+      evt.target.closest('.cards__container').remove();
+    });
+
+    cardZone.append(htmlElement);
+});
+
+
+
+//Открытие попапа добавления:
+function openPopupAdd() {
+  popupAdd.classList.add('popup_opened');
+};
+openPopupButtonAddImg.addEventListener('click', openPopupAdd);
+
+
+//Закрытие попапа редактирования
+function closePopupAdd() {
+  popupAdd.classList.remove('popup_opened');
+};
+closePopupButtonAdd.addEventListener('click', closePopupAdd);
+
+
+//Добавление карточки из попапа
+function addCard(name, link){
+  const htmlElement = itemTemplate.cloneNode(true);
+  const nameNewCard = htmlElement.querySelector('.cards__name');
+  const linkNewCard = htmlElement.querySelector('.cards__img');
+  nameNewCard.textContent = name;
+  linkNewCard.src = link;
+  htmlElement.querySelector('.cards__like-button').addEventListener('click', function(evt) {
+    evt.target.classList.toggle('cards__like-button_active');
+  });
+  htmlElement.querySelector('.cards__del-button').addEventListener('click', function(evt) {
+    evt.target.closest('.cards__container').remove();
+  });
+  cardZone.prepend(htmlElement);
+};
+
+
+//Отправка значения формы добавления
+function formSubmitHandlerAdd (evt) {
+  evt.preventDefault(); 
+  addCard(namePlace.value, linkImg.value);
+  closePopupAdd();
+};
+//Обработчик для формы добавления
+formAddCard.addEventListener('submit', formSubmitHandlerAdd); 
+
+
 //Открытие попапа редактирования
 function openPopup() {
     popup.classList.add('popup_opened');
@@ -105,6 +125,8 @@ function openPopup() {
     professionPopup.value = profession.textContent;
 };
 openPopupButton.addEventListener('click', openPopup);
+
+
 //Закрытие попапа редактирования
 function closePopup() {
     popup.classList.remove('popup_opened');
@@ -119,7 +141,5 @@ function formSubmitHandler (evt) {
     profession.textContent = professionPopup.value;
     closePopup();
 };
-
-// Прикрепляем обработчик к форме:
-// он будет следить за событием “submit” - «отправка»
+//Обработчик для формы редактирования
 form.addEventListener('submit', formSubmitHandler); 
