@@ -26,6 +26,7 @@ const initialCards = [
     }
   ];
 
+
 //Поиск template:
 const itemTemplate = document.querySelector('.card__template').content;
 const cardZone = document.querySelector('.cards');
@@ -51,30 +52,66 @@ let form = document.querySelector('.popup__form');
 //Поля в профиле
 let username = document.querySelector('.profile__username');
 let profession = document.querySelector('.profile__profession');
-//Поля в попапе
+//Поля в попапе редактирования
 let usernamePopup = document.querySelector('#username');
 let professionPopup = document.querySelector('#user-job')
-
-
-
-
+//Крупное изображение
+let popupImage = document.querySelector('.popup__img');
+let popupImg = document.querySelector('.popup__full-img');
+let popupImgTitle = document.querySelector('.popup__img-title');
+let closePopupButtonImg = document.querySelector('.popup__close-img')
 
 
 //Добавление элементов в разметку при загрузке страницы
 initialCards.forEach((item) => {
-    const htmlElement = itemTemplate.cloneNode(true);
-    htmlElement.querySelector('.cards__name').textContent = item.name;
-    htmlElement.querySelector('.cards__img').src = item.link;
-    htmlElement.querySelector('.cards__like-button').addEventListener('click', function(evt) {
-      evt.target.classList.toggle('cards__like-button_active');
-    });
-    htmlElement.querySelector('.cards__del-button').addEventListener('click', function(evt) {
-      evt.target.closest('.cards__container').remove();
-    });
-
-    cardZone.append(htmlElement);
+    const cards = addCard(item.name, item.link);
+    function firstCards(){
+      cardZone.append();
+    }
+    firstCards(cards);
 });
 
+
+//Добавление карточек
+function addCard(name, link){
+  const htmlElement = itemTemplate.cloneNode(true);
+  const nameNewCard = htmlElement.querySelector('.cards__name');
+  const linkNewCard = htmlElement.querySelector('.cards__img');
+  nameNewCard.textContent = name;
+  linkNewCard.src = link;
+  
+  //Лайк
+  htmlElement.querySelector('.cards__like-button').addEventListener('click', function(evt) {
+    evt.target.classList.toggle('cards__like-button_active');
+  });
+
+  //Удаление
+  htmlElement.querySelector('.cards__del-button').addEventListener('click', function(evt) {
+    evt.target.closest('.cards__container').remove();
+  });
+
+  //Открытие попапа изображения
+  linkNewCard.addEventListener('click', function(evt) {
+    popupImg.src = link;
+    popupImgTitle.textContent = name;
+    openPopupImg()
+  })
+  
+  cardZone.prepend(htmlElement);
+};
+
+
+//Открытие попапа изображения:
+function openPopupImg() {
+  popupImage.classList.add('popup_opened');
+};
+
+
+//Закрытие попапа редактирования
+function closePopupImg() {
+  popupImage.classList.remove('popup_opened');
+};
+closePopupButtonImg.addEventListener('click', closePopupImg);
 
 
 //Открытие попапа добавления:
@@ -89,23 +126,6 @@ function closePopupAdd() {
   popupAdd.classList.remove('popup_opened');
 };
 closePopupButtonAdd.addEventListener('click', closePopupAdd);
-
-
-//Добавление карточки из попапа
-function addCard(name, link){
-  const htmlElement = itemTemplate.cloneNode(true);
-  const nameNewCard = htmlElement.querySelector('.cards__name');
-  const linkNewCard = htmlElement.querySelector('.cards__img');
-  nameNewCard.textContent = name;
-  linkNewCard.src = link;
-  htmlElement.querySelector('.cards__like-button').addEventListener('click', function(evt) {
-    evt.target.classList.toggle('cards__like-button_active');
-  });
-  htmlElement.querySelector('.cards__del-button').addEventListener('click', function(evt) {
-    evt.target.closest('.cards__container').remove();
-  });
-  cardZone.prepend(htmlElement);
-};
 
 
 //Отправка значения формы добавления
