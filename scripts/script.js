@@ -31,35 +31,35 @@ const initialCards = [
 const itemTemplate = document.querySelector('.card__template').content;
 const cardZone = document.querySelector('.cards');
 //Попап добавления места:
-let popupAdd = document.querySelector('.popup_add-img');
+const popupAdd = document.querySelector('.popup_add-img');
 //Кнопка добавления:
-let openPopupButtonAddImg = document.querySelector('.profile__add-button');
+const openPopupButtonAddImg = document.querySelector('.profile__add-button');
 //Кнопка закрытия:
-let closePopupButtonAdd = document.querySelector('.popup__close-button_add-img');
+const closePopupButtonAdd = document.querySelector('.popup__close-button_add-img');
 //Форма добавления:
-let formAddCard = document.querySelector('.popup_form-add');
+const formAddCard = document.querySelector('.popup_form-add');
 //Поля формы попапа добавления карточки
-let namePlace = document.querySelector('.popup__input_add-name');
-let linkImg = document.querySelector('.popup__input_add-link');
+const namePlace = document.querySelector('.popup__input_add-name');
+const linkImg = document.querySelector('.popup__input_add-link');
 //Попап редактирования:
-let popup = document.querySelector('.popup');
+const popup = document.querySelector('.popup');
 //Кнопка редактирования:
-let openPopupButton = document.querySelector('.profile__edit-button');
+const openPopupButton = document.querySelector('.profile__edit-button');
 //Кнопка закрытия:
-let closePopupButton = document.querySelector('.popup__close-button');
+const closePopupButton = document.querySelector('.popup__close-button');
 //Форма:
-let form = document.querySelector('.popup__form');
+const form = document.querySelector('.popup__form');
 //Поля в профиле
-let username = document.querySelector('.profile__username');
-let profession = document.querySelector('.profile__profession');
+const username = document.querySelector('.profile__username');
+const profession = document.querySelector('.profile__profession');
 //Поля в попапе редактирования
-let usernamePopup = document.querySelector('#username');
-let professionPopup = document.querySelector('#user-job')
+const usernamePopup = document.querySelector('#username');
+const professionPopup = document.querySelector('#user-job')
 //Крупное изображение
-let popupImage = document.querySelector('.popup__img');
-let popupImg = document.querySelector('.popup__full-img');
-let popupImgTitle = document.querySelector('.popup__img-title');
-let closePopupButtonImg = document.querySelector('.popup__close-img')
+const popupImage = document.querySelector('.popup__img');
+const popupImg = document.querySelector('.popup__full-img');
+const popupImgTitle = document.querySelector('.popup__img-title');
+const closePopupButtonImg = document.querySelector('.popup__close-img')
 
 
 //Добавление элементов в разметку при загрузке страницы
