@@ -37,7 +37,7 @@ const openPopupButtonAddImg = document.querySelector('.profile__add-button');
 //Кнопка закрытия:
 const closePopupButtonAdd = document.querySelector('.popup__close-button_add-img');
 //Форма добавления:
-const formAddCard = document.querySelector('.popup_form-add');
+const formAddCard = document.querySelector('.popup__form-add');
 //Поля формы попапа добавления карточки
 const namePlace = document.querySelector('.popup__input_add-name');
 const linkImg = document.querySelector('.popup__input_add-link');
@@ -56,7 +56,7 @@ const profession = document.querySelector('.profile__profession');
 const usernamePopup = document.querySelector('#username');
 const professionPopup = document.querySelector('#user-job')
 //Крупное изображение
-const popupImage = document.querySelector('.popup__img');
+const popupImage = document.querySelector('.popup_img');
 const popupImg = document.querySelector('.popup__full-img');
 const popupImgTitle = document.querySelector('.popup__img-title');
 const closePopupButtonImg = document.querySelector('.popup__close-img')
