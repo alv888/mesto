@@ -45,11 +45,11 @@
         </div>
     </template>
 
-    <div class="popup">
+    <div class="popup popup_edit">
         <div class="popup__container">
-            <button class="popup__close-button" type="button"></button>
+            <button class="popup__close-button popup__close-button_edit" type="button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form" name="edit-info">
+            <form class="popup__form popup__form_edit" name="edit-info">
                 <input class="popup__input" name="username" minlength="2" maxlength="32" id="username">
                 <input class="popup__input" name="profession" minlength="2" maxlength="32" id="user-job">
                 <button type="submit" class="popup__submit-button">Сохранить</button>
@@ -62,8 +62,8 @@
             <button class="popup__close-button popup__close-button_add-img" type="button"></button>
             <h2 class="popup__title popup__title_add-img">Новое место</h2>
             <form class="popup__form popup__form-add" name="add-card">
-                <input class="popup__input popup__input_add-name" name="name-place" minlength="2" maxlength="32" id="username-add" placeholder="Название">
-                <input class="popup__input popup__input_add-link" name="link-img" minlength="2" maxlength="300" id="user-job-add" placeholder="Ссылка на картинку">
+                <input class="popup__input popup__input_add-name" name="name-place" minlength="2" maxlength="32" id="add-name" placeholder="Название">
+                <input class="popup__input popup__input_add-link" name="link-img" minlength="2" maxlength="300" id="add-link" placeholder="Ссылка на картинку">
                 <button type="submit" class="popup__submit-button popup__submit-button_add-img">Создать</button>
             </form>
         </div>
@@ -75,6 +75,7 @@
                 <button class="popup__close-img" type="button"></button>
             </div>
     </div>
+    <script src='./scripts/initial-cards.js'></script>
     <script src="./scripts/script.js"></script>
 </body>
 </html>
