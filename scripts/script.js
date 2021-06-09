@@ -9,7 +9,7 @@ const fieldProfileProfession = document.querySelector('.profile__profession');
 //Попап редактирования:
 const popupEdit = document.querySelector('.popup_edit');
 //Кнопка редактирования профиля:
-const ButtonEditProfile = document.querySelector('.profile__edit-button');
+const buttonEditProfile = document.querySelector('.profile__edit-button');
 //Кнопка закрытия попапа редактирования:
 const buttonClosePopupEdit = document.querySelector('.popup__close-button_edit');
 //Поля в попапе редактирования
@@ -143,7 +143,7 @@ formAddCard.addEventListener('submit', submitFormAddCards);
 
 
 //Слушатель открытия попапа редактирования профиля
-ButtonEditProfile.addEventListener('click', openPopupEdit);
+buttonEditProfile.addEventListener('click', openPopupEdit);
 //Слушатель закрытия попапа редактирования профиля
 buttonClosePopupEdit.addEventListener('click', closePopupEdit);
 //Слушатель открытия попапа добавления карточки
@@ -156,7 +156,7 @@ buttonClosePopupImg.addEventListener('click', closePopupImg);
 
 //Добавление элементов в разметку при загрузке страницы
 initialCards.forEach((item) => {
-  const cards = createCards(item.name, item.link);
+  const card = createCards(item.name, item.link);
   
-  addCards(cards);
+  addCards(card);
 });
