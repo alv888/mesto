@@ -14,7 +14,7 @@ const buttonEditProfile = document.querySelector('.profile__edit-button');
 const buttonClosePopupEdit = document.querySelector('.popup__close-button_edit');
 //Поля в попапе редактирования
 const fieldEditPopupUsername = document.querySelector('#username');
-const fieldEditPopupProfession = document.querySelector('#user-job')
+const fieldEditPopupProfession = document.querySelector('#userJob')
 //Форма попапа редактирования профиля:
 const formEditProfile = document.querySelector('.popup__form_edit');
 
