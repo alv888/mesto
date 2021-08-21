@@ -8,8 +8,6 @@ const validationElement = {
   errorClass: 'popup__error_visible'
 }; 
 
-  //
-
   // Функция отображения ошибки
   function showInputError(formElement, inputElement, errorMessage, validationSelectors) {
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);

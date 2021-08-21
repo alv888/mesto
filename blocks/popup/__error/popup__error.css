@@ -6,4 +6,12 @@
     font-size: 12px;
     line-height: 15px;
     color: #FF0000;
+    align-self: flex-start;
+    margin-left: 35px;
+}
+
+@media (max-width: 699px) {
+    .popup__error {
+        margin-left: 20px;
+    }
 }
