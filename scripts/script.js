@@ -18,6 +18,7 @@ const fieldEditPopupProfession = document.querySelector('#userJob')
 //Форма попапа редактирования профиля:
 const formEditProfile = document.querySelector('.popup__form_edit');
 
+
 //Попап добавления карточки:
 const popupAddCard = document.querySelector('.popup_add-img');
 //Кнопка добавления карточки:
@@ -46,6 +47,7 @@ const titlePopupImg = document.querySelector('.popup__img-title');
 //Открытие попапов
 function openPopup(item) {
   item.classList.add('popup_opened');
+  enableValidation(validationElement);
 };
 //Закрытие попапов
 function closePopup(item) {
@@ -152,7 +154,21 @@ buttonOpenPopAdd.addEventListener('click', openPopupAdd);
 buttonClosePopAdd.addEventListener('click', closePopupAdd);
 //Слушатель закрытия попапа изображения
 buttonClosePopupImg.addEventListener('click', closePopupImg);
+//Слушатель закрытие модалок на кнопку esc
+document.addEventListener('keyup', (evt) => {
+  if (evt.key === 'Escape') {
+    closePopup(popupEdit);
+    closePopup(popupAddCard);
+    closePopup(popupImage);
+  }
+});
 
+//Закрытие модалок по мисклику
+document.addEventListener('mouseup', (evt) => {
+  if (evt.target.classList.contains('popup')) {
+    closePopup(evt.target);
+  }
+});
 
 //Добавление элементов в разметку при загрузке страницы
 initialCards.forEach((item) => {
@@ -160,3 +176,4 @@ initialCards.forEach((item) => {
   
   addCards(card);
 });
+
