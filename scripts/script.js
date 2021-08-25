@@ -47,11 +47,12 @@ const titlePopupImg = document.querySelector('.popup__img-title');
 //Открытие попапов
 function openPopup(item) {
   item.classList.add('popup_opened');
-  enableValidation(validationElement);
+  document.addEventListener('keyup', closeEscPopup);
 };
 //Закрытие попапов
 function closePopup(item) {
     item.classList.remove('popup_opened');
+    document.removeEventListener('keyup', closeEscPopup);
 };
 
 
@@ -70,6 +71,8 @@ function closePopupEdit() {
 //Открытие попапа добавления карточки:
 function openPopupAdd() {
   openPopup(popupAddCard);
+  formAddCard.reset();
+  resetValidation(formAddCard);
 };
 //Закрытие попапа добавления карточки
 function closePopupAdd() {
@@ -86,6 +89,20 @@ function closePopupImg() {
   closePopup(popupImage)
 };
 
+//Закрытие модалок по мисклику
+function missclickClosePopup (evt){
+  if (evt.target.classList.contains('popup')) {
+    closePopup(evt.target);
+  };
+}
+
+//Закрытие модалок на кнопку esc
+function closeEscPopup (evt) {
+  if (evt.key === 'Escape') {
+    popups = document.querySelector('.popup_opened')
+    closePopup(popups);
+  }
+}
 
 //Добавление карточек
 function createCards(name, link){
@@ -154,21 +171,13 @@ buttonOpenPopAdd.addEventListener('click', openPopupAdd);
 buttonClosePopAdd.addEventListener('click', closePopupAdd);
 //Слушатель закрытия попапа изображения
 buttonClosePopupImg.addEventListener('click', closePopupImg);
-//Слушатель закрытие модалок на кнопку esc
-document.addEventListener('keyup', (evt) => {
-  if (evt.key === 'Escape') {
-    closePopup(popupEdit);
-    closePopup(popupAddCard);
-    closePopup(popupImage);
-  }
-});
+//Слушатель мисклика в модалке редактирования
+popupEdit.addEventListener('mouseup', missclickClosePopup);
+//Слушатель мисклика в модалке карточки
+popupAddCard.addEventListener('mouseup', missclickClosePopup);
+//Слушатель мисклика в модалке изображения
+popupImage.addEventListener('mouseup', missclickClosePopup);
 
-//Закрытие модалок по мисклику
-document.addEventListener('mouseup', (evt) => {
-  if (evt.target.classList.contains('popup')) {
-    closePopup(evt.target);
-  }
-});
 
 //Добавление элементов в разметку при загрузке страницы
 initialCards.forEach((item) => {

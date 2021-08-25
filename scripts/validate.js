@@ -52,6 +52,8 @@ const validationElement = {
       buttonElements.classList.remove(validationSelectors.inactiveButtonClass);
     }
   };
+
+  
   
   //Установка слушателей на инпут
   function setEventListeners(formElement, validationSelectors) {
@@ -73,4 +75,24 @@ const validationElement = {
       setEventListeners(formElement, validationSelectors);
     })
   }
- 
+  enableValidation(validationElement);
+
+
+//Сброс валидации при открытии модалки
+  function resetValidation(form) {
+    const errorElements = form.querySelectorAll(`.popup__error`);
+    const inputElements = form.querySelectorAll('.popup__input');
+    const buttonElements = form.querySelector('.popup__submit-button_add-img');
+
+    errorElements.forEach((span) => {
+      span.classList.remove('popup__error_visible');
+      span.textContent = "";
+    });
+
+    inputElements.forEach((input) => {
+      input.classList.remove('popup__input_type_error');
+    });
+
+    buttonElements.classList.add('popup__submit-button_disabled');
+    buttonElements.setAttribute('disabled', true);
+  }
