@@ -10,21 +10,21 @@ export default class FormValidator {
         this._input = Array.from(this._formElement.querySelectorAll(this._inputSelector));
         this._buttonElements = this._formElement.querySelector( this._submitButtonSelector);
     }
-
+    // Отображения ошибки
     _showInputError (inputElement) {
         const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
         errorElement.textContent = inputElement.validationMessage;
         errorElement.classList.add(this._errorClass);
         inputElement.classList.add(this._inputErrorClass);
     }
-
+    //Скрытие ошибки
     _hideInputError (inputElement) {
         const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
         errorElement.classList.remove(this._errorClass);
         errorElement.textContent = "";
         inputElement.classList.remove(this._inputErrorClass);
     }
-
+    //Валидация
     _isValidInput (inputElement) {
         if (!inputElement.validity.valid) {
             this._showInputError(inputElement);
@@ -33,14 +33,14 @@ export default class FormValidator {
           };
         }
     
-
+    //Состояние полей
     _hasInvalidInput () {
         return this._input.some((inputElement) => {
         return !inputElement.validity.valid;
         });
 
     }
-
+    //Блокировка кнопки
     _toggleButtonState () {
         if (this._hasInvalidInput(this._input)) {
             this._buttonElements.classList.add(this._inactiveButtonClass);
@@ -50,7 +50,7 @@ export default class FormValidator {
             this._buttonElements.classList.remove(this._inactiveButtonClass);
           }
     }
-
+    //Слушатели
     _setEventListeners () {
         this._toggleButtonState();
 
@@ -61,13 +61,13 @@ export default class FormValidator {
             });
           });
     }
-
+    //Сброс валидации
     resetValidation () {
         this._input.forEach((inputElement) => {
             this._hideInputError(inputElement);
             });
     }
-
+    //Включение валидации
     enableValidation() {
         this._setEventListeners ();
     }
