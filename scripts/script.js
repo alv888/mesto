@@ -1,5 +1,8 @@
 import {initialCards} from './initial-cards.js';
+import {validationElement} from "./initial-cards.js";
 import Card from './card.js';
+import FormValidator from './formValidator.js';
+
 
 //Секция карточек
 const cardsZone = document.querySelector('.cards');
@@ -33,8 +36,6 @@ const fieldLinkProfilePopup = document.querySelector('.popup__input_add-link');
 const formAddCard = document.querySelector('.popup__form-add');
 
 
-
-
 //Попап изображения
 const popupImage = document.querySelector('.popup_img');
 
@@ -45,6 +46,13 @@ const buttonClosePopupImg = document.querySelector('.popup__close-img');
 export const imgPopup = document.querySelector('.popup__full-img');
 //Заголовок изображения
 export const titlePopupImg = document.querySelector('.popup__img-title');
+
+
+//Включение валидации
+const enableEditValidation = new FormValidator(validationElement, formEditProfile);
+const enableAddValidation = new FormValidator(validationElement, formAddCard);
+enableEditValidation.enableValidation();
+enableAddValidation.enableValidation();
 
 
 //Открытие попапов
@@ -63,7 +71,8 @@ function closePopup(item) {
 function openPopupEdit() {
   fieldEditPopupUsername.value = fieldProfileUsername.textContent;
   fieldEditPopupProfession.value = fieldProfileProfession.textContent;
-openPopup(popupEdit);
+  enableEditValidation.resetValidation();
+  openPopup(popupEdit);
 };
 //Закрытие попапа редактирования
 function closePopupEdit() {
@@ -74,8 +83,8 @@ function closePopupEdit() {
 //Открытие попапа добавления карточки:
 function openPopupAdd() {
   openPopup(popupAddCard);
+  enableAddValidation.resetValidation();
   formAddCard.reset();
-  resetValidation(formAddCard);
 };
 //Закрытие попапа добавления карточки
 function closePopupAdd() {
@@ -158,3 +167,4 @@ popupImage.addEventListener('mouseup', missclickClosePopup);
 initialCards.forEach((item) => {
   const card = createCards(item);
 });
+
