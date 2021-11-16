@@ -7,8 +7,8 @@ export default class FormValidator {
         this._inputErrorClass = validationElement.inputErrorClass;
         this._errorClass = validationElement.errorClass;
         this._formElement = formElement;
-        this._input = Array.from(this._formElement.querySelectorAll(this._inputSelector));
-        this._buttonElements = this._formElement.querySelector( this._submitButtonSelector);
+        this._inputs = Array.from(this._formElement.querySelectorAll(this._inputSelector));
+        this._buttonElement = this._formElement.querySelector( this._submitButtonSelector);
     }
     // Отображения ошибки
     _showInputError (inputElement) {
@@ -35,26 +35,26 @@ export default class FormValidator {
     
     //Состояние полей
     _hasInvalidInput () {
-        return this._input.some((inputElement) => {
+        return this._inputs.some((inputElement) => {
         return !inputElement.validity.valid;
         });
 
     }
     //Блокировка кнопки
     _toggleButtonState () {
-        if (this._hasInvalidInput(this._input)) {
-            this._buttonElements.classList.add(this._inactiveButtonClass);
-            this._buttonElements.setAttribute('disabled', true);
+        if (this._hasInvalidInput(this._inputs)) {
+            this._buttonElement.classList.add(this._inactiveButtonClass);
+            this._buttonElement.setAttribute('disabled', true);
           } else {
-            this._buttonElements.removeAttribute('disabled');
-            this._buttonElements.classList.remove(this._inactiveButtonClass);
+            this._buttonElement.removeAttribute('disabled');
+            this._buttonElement.classList.remove(this._inactiveButtonClass);
           }
     }
     //Слушатели
     _setEventListeners () {
         this._toggleButtonState();
 
-        this._input.forEach((inputElement) => {
+        this._inputs.forEach((inputElement) => {
             inputElement.addEventListener('input', () => {
                 this._isValidInput(inputElement);
                 this._toggleButtonState();
@@ -63,8 +63,9 @@ export default class FormValidator {
     }
     //Сброс валидации
     resetValidation () {
-        this._input.forEach((inputElement) => {
+        this._inputs.forEach((inputElement) => {
             this._hideInputError(inputElement);
+            this._toggleButtonState();
             });
     }
     //Включение валидации

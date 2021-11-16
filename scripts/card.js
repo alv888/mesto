@@ -1,4 +1,4 @@
-import { imgPopup, titlePopupImg, openPopupImg } from "./script.js";
+import { imgPopup, titlePopupImg, openPopupImg } from "./index.js";
 export default  class Card {
     constructor(data, templateSelector){
         this._name = data.name;
@@ -38,6 +38,7 @@ export default  class Card {
         });
         this._cardImg.addEventListener('click', () => {
             imgPopup.src = this._link;
+            imgPopup.alt = this._name;
             titlePopupImg.textContent = this._name;
             openPopupImg()
         });

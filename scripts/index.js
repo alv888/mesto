@@ -1,7 +1,7 @@
 import {initialCards} from './initial-cards.js';
 import {validationElement} from "./initial-cards.js";
-import Card from './card.js';
-import FormValidator from './formValidator.js';
+import Card from './Card.js';
+import FormValidator from './FormValidator.js';
 
 
 //Секция карточек
@@ -83,8 +83,8 @@ function closePopupEdit() {
 //Открытие попапа добавления карточки:
 function openPopupAdd() {
   openPopup(popupAddCard);
-  enableAddValidation.resetValidation();
   formAddCard.reset();
+  enableAddValidation.resetValidation();
 };
 //Закрытие попапа добавления карточки
 function closePopupAdd() {
@@ -111,7 +111,7 @@ function missclickClosePopup (evt){
 //Закрытие модалок на кнопку esc
 function closeEscPopup (evt) {
   if (evt.key === 'Escape') {
-    popups = document.querySelector('.popup_opened')
+    const popups = document.querySelector('.popup_opened')
     closePopup(popups);
   }
 }
