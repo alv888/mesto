@@ -6,34 +6,30 @@
     <link rel="stylesheet" href="./pages/index.css">
     <title>Проект "Место"</title>
 </head>
-<body>
-    <div class="page">
-        <header class="header">
-            <img class="header__logo" alt="Логотип Mesto"   src="./images/logo_mesto.svg">
-        </header>
-        <main class="content">
-            <section class="profile">
-                <div class="profile__container">
-                    <img class="profile__avatar" alt="Аватар" src="./images/avatar.jpg">
-                    <div class="profile__info">
-                        <div class="profile__name">
-                            <h1 class="profile__username">Жак-Ив Кусто</h1>
-                            <button type="button" class="profile__edit-button"></button>
-                        </div>
-                        <p class="profile__profession">Исследователь океана</p>
+<body class="page">
+    <header class="header">
+        <img class="header__logo" alt="Логотип Mesto"   src="./images/logo_mesto.svg">
+    </header>
+    <main class="content">
+        <section class="profile">
+            <div class="profile__container">
+                <img class="profile__avatar" alt="Аватар" src="./images/avatar.jpg">
+                <div class="profile__info">
+                    <div class="profile__name">
+                        <h1 class="profile__username">Жак-Ив Кусто</h1>
+                        <button type="button" class="profile__edit-button"></button>
                     </div>
+                    <p class="profile__profession">Исследователь океана</p>
                 </div>
-                <button class="profile__add-button" type="button"></button>
-            </section>
-            <section class="cards">
-                
-            </section>
-
-        </main>
-        <footer class="footer">
-            <p class="footer__project-name">&copy; 2021 Mesto Russia</p>
-        </footer>
-    </div>
+            </div>
+            <button class="profile__add-button" type="button"></button>
+        </section>
+        <section class="cards">                
+        </section>
+    </main>
+    <footer class="footer">
+        <p class="footer__project-name">&copy; 2021 Mesto Russia</p>
+    </footer>
     <template class="card__template">
         <div class="cards__container">
             <button class="cards__del-button" type="submit"></button>
