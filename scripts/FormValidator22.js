@@ -63,9 +63,9 @@ export default class FormValidator {
     }
     //Сброс валидации
     resetValidation () {
+        this._toggleButtonState();
         this._inputs.forEach((inputElement) => {
             this._hideInputError(inputElement);
-            this._toggleButtonState();
             });
     }
     //Включение валидации

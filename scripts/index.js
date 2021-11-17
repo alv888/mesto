@@ -111,8 +111,8 @@ function missclickClosePopup (evt){
 //Закрытие модалок на кнопку esc
 function closeEscPopup (evt) {
   if (evt.key === 'Escape') {
-    const popups = document.querySelector('.popup_opened')
-    closePopup(popups);
+    const popup = document.querySelector('.popup_opened')
+    closePopup(popup);
   }
 }
 
